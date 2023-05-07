@@ -14,7 +14,11 @@ function App() {
         setStorage={setStorage}
         setExternalText={setExternalText}
       />
-      {/*<ul>{storage}</ul>*/}
+      <div>
+        {storage.map((task, index) => (
+          <div key={index}>{task}</div>
+        ))}
+      </div>
     </>
   );
 }
