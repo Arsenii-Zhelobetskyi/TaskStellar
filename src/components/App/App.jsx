@@ -1,22 +1,35 @@
 import Form from "../Form/Form.jsx";
+import Task from "../Task/Task.jsx";
 import { useState } from "react";
 
 function App() {
-  const [externalText, setExternalText] = useState("");
-  const [storage, setStorage] = useState([]);
+  const [externalText, setExternalText] = useState(""); // user input is chasing here
+  const [storage, setStorage] = useState([]); // all information about the tasks
   console.log(storage);
+  const test = {
+    info: "",
+    details: "",
+    completed: false,
+  };
+  // console.log(test);
   return (
     <>
       <div>TaskStellar</div>
       <Form
         externalText={externalText}
         storage={storage}
-        setStorage={setStorage}
         setExternalText={setExternalText}
+        setStorage={setStorage}
       />
       <div>
         {storage.map((task, index) => (
-          <div key={index}>{task}</div>
+          <Task
+            key={index}
+            index={index}
+            task={task}
+            storage={storage}
+            setStorage={setStorage}
+          />
         ))}
       </div>
     </>
