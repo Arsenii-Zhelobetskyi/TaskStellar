@@ -16,7 +16,10 @@ function Form({ externalText, storage, setExternalText, setStorage }) {
   const submitForm = (e) => {
     //push info into the storage
     e.preventDefault();
-    setStorage([...storage, structureOfTask]);
+    setStorage({
+      unfinishedTasks: [...storage.unfinishedTasks, structureOfTask],
+      finishedTasks: [],
+    });
     setExternalText("");
   };
   return (

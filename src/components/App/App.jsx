@@ -4,13 +4,11 @@ import { useState } from "react";
 
 function App() {
   const [externalText, setExternalText] = useState(""); // user input is chasing here
-  const [storage, setStorage] = useState([]); // all information about the tasks
+  const [storage, setStorage] = useState({
+    unfinishedTasks: [],
+    finishedTasks: [],
+  }); // all information about the tasks
   console.log(storage);
-  const test = {
-    info: "",
-    details: "",
-    completed: false,
-  };
   // console.log(test);
   return (
     <>
@@ -22,7 +20,20 @@ function App() {
         setStorage={setStorage}
       />
       <div>
-        {storage.map((task, index) => (
+        unfinishedTasks:
+        {storage.unfinishedTasks.map((task, index) => (
+          <Task
+            key={index}
+            index={index}
+            task={task}
+            storage={storage}
+            setStorage={setStorage}
+          />
+        ))}
+      </div>
+      <div>
+        finishedTasks:
+        {storage.finishedTasks.map((task, index) => (
           <Task
             key={index}
             index={index}
