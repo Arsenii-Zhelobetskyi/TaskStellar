@@ -5,7 +5,13 @@ import { useState } from "react";
 function App() {
   const [externalText, setExternalText] = useState(""); // user input is chasing here
   const [storage, setStorage] = useState([]); // all information about the tasks
-  // console.log(storage);
+  console.log(storage);
+  const test = {
+    info: "",
+    details: "",
+    completed: false,
+  };
+  // console.log(test);
   return (
     <>
       <div>TaskStellar</div>

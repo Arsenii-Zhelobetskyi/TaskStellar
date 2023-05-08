@@ -7,10 +7,16 @@
  * @param setStorage - to add new information into storage
  * */
 function Form({ externalText, storage, setExternalText, setStorage }) {
+  const structureOfTask = {
+    //how each task is represented in a storage
+    info: externalText,
+    details: "",
+    completed: false,
+  };
   const submitForm = (e) => {
     //push info into the storage
     e.preventDefault();
-    setStorage([...storage, externalText]);
+    setStorage([...storage, structureOfTask]);
     setExternalText("");
   };
   return (

@@ -13,7 +13,7 @@ function Task({ index, task, storage, setStorage }) {
   return (
     <div>
       <input type="radio" />
-      <div>{task}</div>
+      <div>{task.info}</div>
       <button onClick={() => deleteTask(index)}>X</button>
     </div>
   );
