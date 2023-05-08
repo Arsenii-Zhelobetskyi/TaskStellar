@@ -3,8 +3,8 @@ import Task from "../Task/Task.jsx";
 import { useState } from "react";
 
 function App() {
-  const [externalText, setExternalText] = useState("");
-  const [storage, setStorage] = useState([]);
+  const [externalText, setExternalText] = useState(""); // user input is chasing here
+  const [storage, setStorage] = useState([]); // all information about the tasks
   // console.log(storage);
   return (
     <>
@@ -12,8 +12,8 @@ function App() {
       <Form
         externalText={externalText}
         storage={storage}
-        setStorage={setStorage}
         setExternalText={setExternalText}
+        setStorage={setStorage}
       />
       <div>
         {storage.map((task, index) => (
