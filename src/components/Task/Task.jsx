@@ -1,4 +1,5 @@
 import React from "react";
+
 /**
  * user's task
  * @param index each task has it's own number
@@ -8,6 +9,7 @@ import React from "react";
  * */
 function Task({ index, task, storage, setStorage }) {
   const deleteTask = (index) => {
+    // console.log(e);
     setStorage(storage.filter((_, i) => i !== index));
   };
   const toggleTask = (index) => {
@@ -18,15 +20,19 @@ function Task({ index, task, storage, setStorage }) {
           return {
             ...item,
             completed: !item.completed,
-          }; //destructuring the object->changing it's property->create+ return new object
+          };
+        //destructuring the object->changing it's property->create+ return new object
         else return item;
       })
     );
-    storage.find((_, i) => i === index).completed = true;
   };
   return (
     <div>
-      <input type="checkbox" onClick={() => toggleTask(index)} />
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => toggleTask(index)}
+      />
       <div>{task.info}</div>
       <button onClick={() => deleteTask(index)}>X</button>
     </div>
