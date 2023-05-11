@@ -2,22 +2,20 @@ import React from "react";
 
 /**
  * user's task
- * @param index each task has it's own number
  * @param task each task has some info
  * @param storage storage is needed for delete functionality
  * @param setStorage is also needed for updating the storage
- * @param setData ??
  * */
-function Task({ index, task, storage, setStorage }) {
+function Task({ task, storage, setStorage }) {
   const deleteTask = () => {
     // console.log(e);
-    setStorage(storage.filter((item) => item.id !== index));
+    setStorage(storage.filter((item) => item.id !== task.id));
   };
   const toggleTask = () => {
     //SetStorage- because we want to say react that task should be re-rendered with new property
     setStorage(
       storage.map((item) => {
-        if (item.id === index)
+        if (item.id === task.id)
           return {
             ...item,
             completed: !item.completed,

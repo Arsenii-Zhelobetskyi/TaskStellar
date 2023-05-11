@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid"; // for generate unique id's for elements
 /**
  * <h1> input and submit button </h1>
  * function which includes the input and button to persist information from input
@@ -9,7 +10,7 @@
 function Form({ inputText, storage, setInputText, setStorage }) {
   const task = {
     //how each task is represented in a storage
-    id: inputText,
+    id: uuidv4().slice(0, 8),
     info: inputText,
     details: "",
     completed: false,

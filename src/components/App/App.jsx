@@ -2,8 +2,7 @@ import Form from "../Form/Form.jsx";
 import Filters from "../Filters/Filters.jsx";
 import Task from "../Task/Task.jsx";
 import { useEffect, useState } from "react";
-//todo add normal id
-// проверить все ли в компонентах
+//todo проверить все ли в компонентах
 function App() {
   const [inputText, setInputText] = useState(""); // user input is chasing here
   const [storage, setStorage] = useState([]); // all information about the tasks
@@ -16,8 +15,9 @@ function App() {
         : storage;
     setData(newData);
   }, [sort, storage]);
-  // console.log(data, storage);
-  console.log("sort:", sort);
+  console.log(data, storage);
+  console.log(storage);
+  // console.log("sort:", sort);
 
   return (
     <>
@@ -30,10 +30,9 @@ function App() {
       />
       <Filters sort={sort} setSort={setSort} />
       <div>
-        {data.map((task, index) => (
+        {data.map((task) => (
           <Task
-            key={index}
-            index={task.id}
+            key={task.id}
             task={task}
             storage={storage}
             setStorage={setStorage}
