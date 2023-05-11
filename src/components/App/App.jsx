@@ -1,5 +1,5 @@
 import Form from "../Form/Form.jsx";
-import Filter from "../Filter/Filter.jsx";
+import Filters from "../Filters/Filters.jsx";
 import Task from "../Task/Task.jsx";
 import { useEffect, useState } from "react";
 //todo add normal id
@@ -7,16 +7,18 @@ import { useEffect, useState } from "react";
 function App() {
   const [inputText, setInputText] = useState(""); // user input is chasing here
   const [storage, setStorage] = useState([]); // all information about the tasks
-  const [sort, setSort] = useState("");
+  const [sort, setSort] = useState("all");
   const [data, setData] = useState(storage); // all data that user's sees
   useEffect(() => {
-    const newData = sort
-      ? storage.filter((item) => item.completed === (sort === "completed"))
-      : storage;
+    const newData =
+      sort !== "all"
+        ? storage.filter((item) => item.completed === (sort === "completed"))
+        : storage;
     setData(newData);
   }, [sort, storage]);
-
   // console.log(data, storage);
+  console.log("sort:", sort);
+
   return (
     <>
       <div>TaskStellar</div>
@@ -26,10 +28,7 @@ function App() {
         setInputText={setInputText}
         setStorage={setStorage}
       />
-      {/*<div onClick={() => setSort(sort ? "" : "uncompleted")}>uncompleted</div>*/}
-      <Filter sort={sort} setSort={setSort} howToSort={"uncompleted"} />
-      <Filter sort={sort} setSort={setSort} howToSort={"completed"} />
-      {/*<div onClick={() => setSort(sort ? "" : "completed")}>completed</div>*/}
+      <Filters sort={sort} setSort={setSort} />
       <div>
         {data.map((task, index) => (
           <Task
