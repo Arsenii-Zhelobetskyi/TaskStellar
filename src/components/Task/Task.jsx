@@ -13,6 +13,7 @@ function Task({ task, storage, setStorage }) {
   };
   const toggleTask = () => {
     //SetStorage- because we want to say react that task should be re-rendered with new property
+
     setStorage(
       storage.map((item) => {
         if (item.id === task.id)
