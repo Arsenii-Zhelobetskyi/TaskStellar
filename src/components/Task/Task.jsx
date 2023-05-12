@@ -1,34 +1,40 @@
 import React from "react";
+
 /**
  * user's task
- * @param index each task has it's own number
  * @param task each task has some info
  * @param storage storage is needed for delete functionality
  * @param setStorage is also needed for updating the storage
  * */
-function Task({ index, task, storage, setStorage }) {
-  const deleteTask = (index) => {
-    setStorage(storage.filter((_, i) => i !== index));
+function Task({ task, storage, setStorage }) {
+  const deleteTask = () => {
+    // console.log(e);
+    setStorage(storage.filter((item) => item.id !== task.id));
   };
-  const toggleTask = (index) => {
+  const toggleTask = () => {
     //SetStorage- because we want to say react that task should be re-rendered with new property
+
     setStorage(
-      storage.map((item, i) => {
-        if (i === index)
+      storage.map((item) => {
+        if (item.id === task.id)
           return {
             ...item,
             completed: !item.completed,
-          }; //destructuring the object->changing it's property->create+ return new object
+          };
+        //destructuring the object->changing it's property->create+ return new object
         else return item;
       })
     );
-    storage.find((_, i) => i === index).completed = true;
   };
   return (
     <div>
-      <input type="checkbox" onClick={() => toggleTask(index)} />
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => toggleTask()}
+      />
       <div>{task.info}</div>
-      <button onClick={() => deleteTask(index)}>X</button>
+      <button onClick={() => deleteTask()}>X</button>
     </div>
   );
 }

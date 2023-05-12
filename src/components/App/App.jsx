@@ -1,31 +1,38 @@
 import Form from "../Form/Form.jsx";
+import Filters from "../Filters/Filters.jsx";
 import Task from "../Task/Task.jsx";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+//todo проверить все ли в компонентах
 function App() {
-  const [externalText, setExternalText] = useState(""); // user input is chasing here
+  const [inputText, setInputText] = useState(""); // user input is chasing here
   const [storage, setStorage] = useState([]); // all information about the tasks
+  const [sort, setSort] = useState("all");
+  const [data, setData] = useState(storage); // all data that user's sees
+  useEffect(() => {
+    const newData =
+      sort !== "all"
+        ? storage.filter((item) => item.completed === (sort === "completed"))
+        : storage;
+    setData(newData);
+  }, [sort, storage]);
+  console.log(data, storage);
   console.log(storage);
-  const test = {
-    info: "",
-    details: "",
-    completed: false,
-  };
-  // console.log(test);
+  // console.log("sort:", sort);
+
   return (
     <>
       <div>TaskStellar</div>
       <Form
-        externalText={externalText}
+        inputText={inputText}
         storage={storage}
-        setExternalText={setExternalText}
+        setInputText={setInputText}
         setStorage={setStorage}
       />
+      <Filters sort={sort} setSort={setSort} />
       <div>
-        {storage.map((task, index) => (
+        {data.map((task) => (
           <Task
-            key={index}
-            index={index}
+            key={task.id}
             task={task}
             storage={storage}
             setStorage={setStorage}
