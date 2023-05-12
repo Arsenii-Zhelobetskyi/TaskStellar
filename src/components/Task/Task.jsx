@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /**
  * user's task
@@ -8,23 +8,34 @@ import React from "react";
  * */
 function Task({ task, storage, setStorage }) {
   const deleteTask = () => {
-    // console.log(e);
-    setStorage(storage.filter((item) => item.id !== task.id));
+    const clearArray = storage.filter((item) => item.id !== task.id);
+    setStorage(clearArray);
+    return clearArray;
   };
   const toggleTask = () => {
     //SetStorage- because we want to say react that task should be re-rendered with new property
-
-    setStorage(
-      storage.map((item) => {
-        if (item.id === task.id)
-          return {
-            ...item,
-            completed: !item.completed,
-          };
-        //destructuring the object->changing it's property->create+ return new object
-        else return item;
-      })
-    );
+    if (task.completed) {
+      task.positionChanged = false;
+      task.completed = !task.completed;
+      setStorage(storage.slice().sort((a, b) => a.position - b.position));
+    } else {
+      task.positionChanged = true;
+      task.completed = !task.completed;
+      setStorage([...deleteTask(), task]);
+    }
+    /*
+        setStorage(
+          storage.map((item) => {
+            if (item.id === task.id)
+              return {
+                ...item,
+                completed: !item.completed,
+              };
+            //destructuring the object->changing it's property->create+ return new object
+            else return item;
+          })
+        );
+    */
   };
   return (
     <div>

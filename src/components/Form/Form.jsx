@@ -14,11 +14,18 @@ function Form({ inputText, storage, setInputText, setStorage }) {
     info: inputText,
     details: "",
     completed: false,
+    position: 0,
+    changedPosition: false,
+  };
+  const addPosition = (item) => {
+    return item.changedPosition
+      ? { ...item }
+      : { ...item, position: item.position + 1 };
   };
   const submitForm = (e) => {
     //push info into the storage
     e.preventDefault();
-    setStorage([task, ...storage]);
+    setStorage([task, ...storage.map((item) => addPosition(item))]);
     setInputText("");
   };
   return (
