@@ -1,0 +1,18 @@
+@use '../../sass/abstracts/variables';
+.filters{
+  @include variables.container(flex,space-between, none);
+  margin: 20px 0 20px 0;
+
+  &__uncompleted{
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  &__completed{
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

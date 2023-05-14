@@ -1,0 +1,37 @@
+@use '../../sass/abstracts/variables';
+
+.container {
+  width: 900px;
+}
+
+.logo {
+  @include variables.container(flex, center, none);
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 20px 0 20px 0;
+
+  &__image {
+    width: 50px;
+    padding-right: 20px;
+  }
+}
+
+.tasks {
+  margin: 40px 0 40px 0;
+}
+
+.empty-list {
+  @include variables.container(flex,center,center);
+  flex-direction: column;
+  &__illustration{
+    width: 500px;
+    margin-bottom: 40px;
+  }
+  &__logo-message{
+    font-weight: 500;
+    font-size: 2rem;
+  }
+  &__message{
+    font-weight: 400;
+  }
+}

@@ -1,4 +1,6 @@
 import { v4 as uuidv4 } from "uuid"; // for generate unique id's for elements
+import "./_form.scss";
+
 /**
  * <h1> input and submit button </h1>
  * function which includes the input and button to persist information from input
@@ -29,15 +31,19 @@ function Form({ inputText, storage, setInputText, setStorage }) {
     setInputText("");
   };
   return (
-    <form onSubmit={submitForm}>
-      <input
-        type="text"
-        placeholder="Add new task"
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
-      />
-      <button>📃Create task</button>
-    </form>
+    <div className="form-container">
+      <form className="form" onSubmit={submitForm}>
+        <input
+          className="form__input"
+          type="text"
+          maxLength={126}
+          placeholder="Add new task"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+        />
+        <button className="btn">📃Create task</button>
+      </form>
+    </div>
   );
 }
 

@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.625rem;
+  background-image: linear-gradient(to right top, #220A3C, #E8546C);
+  color: #f5f2f2;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(115vh - 8vw);
+}
+
+.btn {
+  font-size: 1.625rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.btn:focus {
+  outline: none;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,18 @@
+@use '../../sass/abstracts/variables';
+.form {
+  border-radius: 40rem;
+  display: inline-flex;
+  background-color: white;
+  &__input{
+    font-size: variables.$second-font-size;
+    border: none;
+    padding: 1rem;
+    width: 683px;
+    border-radius: 0.5rem 0 0 0.5rem;
+    &:focus {
+      outline: none;
+    }
+  }
+
+}
+

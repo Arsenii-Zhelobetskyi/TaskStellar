@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./_task.scss";
 /**
  * user's task
  * @param task each task has some info
@@ -38,14 +38,17 @@ function Task({ task, storage, setStorage }) {
     */
   };
   return (
-    <div>
+    <div className="task">
       <input
+        className="input"
         type="checkbox"
         checked={task.completed}
         onChange={() => toggleTask()}
       />
-      <div>{task.info}</div>
-      <button onClick={() => deleteTask()}>X</button>
+      <div className="task-info">{task.info}</div>
+      <button className="btn delete-btn" onClick={() => deleteTask()}>
+        X
+      </button>
     </div>
   );
 }

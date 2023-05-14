@@ -1,0 +1,22 @@
+@use '../../sass/abstracts/variables';
+
+.task {
+  display: flex;
+  //display: grid;
+  //width: 100px;
+  //grid-template-columns: 10px auto 10px;
+}
+
+.input {
+}
+
+.task-info {
+  padding: 10px;
+  flex: 1;
+  overflow-wrap: break-word;
+  width: 820px;
+}
+
+.delete-btn {
+
+}
