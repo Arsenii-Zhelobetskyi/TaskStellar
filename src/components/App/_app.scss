@@ -19,19 +19,3 @@
 .tasks {
   margin: 40px 0 40px 0;
 }
-
-.empty-list {
-  @include variables.container(flex,center,center);
-  flex-direction: column;
-  &__illustration{
-    width: 500px;
-    margin-bottom: 40px;
-  }
-  &__logo-message{
-    font-weight: 500;
-    font-size: 2rem;
-  }
-  &__message{
-    font-weight: 400;
-  }
-}

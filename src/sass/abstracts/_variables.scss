@@ -1,9 +1,16 @@
-$color-grad-1: #220A3C;
-$color-grad-2: #E8546C;
-$color-text: #f5f2f2;
+//$color-grad-1: #220A3C;
+//$color-grad-2: #E8546C;
+$color-grad-1: #421768;
+$color-grad-2: #6B1C5E;
 $gradient: linear-gradient(to right top, $color-grad-1, $color-grad-2);
 $first-font-size: 1.625rem;
 $second-font-size: 1.625rem;
+
+$text:#070909;
+$background: #e2e9e9;
+$primaryButton:#baa6ba;
+$secondaryButton:#eac6be;
+$accent:#eef2f2;
 
 @mixin container(
   $display: flex,

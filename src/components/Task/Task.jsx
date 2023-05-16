@@ -13,6 +13,7 @@ function Task({ task, storage, setStorage }) {
     return clearArray;
   };
   const toggleTask = () => {
+    console.log(storage);
     //SetStorage- because we want to say react that task should be re-rendered with new property
     if (task.completed) {
       task.positionChanged = false;
@@ -45,8 +46,10 @@ function Task({ task, storage, setStorage }) {
         checked={task.completed}
         onChange={() => toggleTask()}
       />
-      <div className="task-info">{task.info}</div>
-      <button className="btn delete-btn" onClick={() => deleteTask()}>
+      <div className={`task-info ${task.completed ? "completed" : ""}`}>
+        {task.info}
+      </div>
+      <button className="delete-btn" onClick={() => deleteTask()}>
         X
       </button>
     </div>

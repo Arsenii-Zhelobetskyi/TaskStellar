@@ -5,16 +5,33 @@
   //display: grid;
   //width: 100px;
   //grid-template-columns: 10px auto 10px;
+  background-color: variables.$accent;
+  padding: 1rem;
+  margin-bottom: 10px;
+  border-radius: 0.5rem;
 }
 
 .input {
 }
-
+.delete-btn{
+  background-color: variables.$secondaryButton;
+  width: 40px;
+  border-radius: inherit;
+  border: none;
+  &:hover{
+    cursor:pointer;
+  }
+}
 .task-info {
   padding: 10px;
   flex: 1;
   overflow-wrap: break-word;
-  width: 820px;
+  width: 800px;
+
+}
+
+.completed {
+  text-decoration: line-through;
 }
 
 .delete-btn {

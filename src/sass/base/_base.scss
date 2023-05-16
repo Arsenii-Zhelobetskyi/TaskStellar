@@ -5,19 +5,15 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: variables.$first-font-size;
-  background-image: variables.$gradient;
+  background-color: #e2e9e9;
+  color: #070909;
+  //background-color: variables.$color-grad-1;
+/*  background-image: variables.$gradient;
   color: variables.$color-text;
   background-size: cover; // todo
   background-repeat: no-repeat; //todo
-  min-height: calc(115vh - 2 * 4vw); //todo
+  min-height: calc(115vh - 2 * 4vw); //todo*/
 }
-.btn{
-  font-size: variables.$second-font-size;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-
-  &:focus {
-    outline: none;
-  }
+::selection {
+  background-color: #9296c3;
 }

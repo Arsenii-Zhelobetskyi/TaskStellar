@@ -10,21 +10,17 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 1.625rem;
-  background-image: linear-gradient(to right top, #220A3C, #E8546C);
-  color: #f5f2f2;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: calc(115vh - 8vw);
+  background-color: #e2e9e9;
+  color: #070909;
+  /*  background-image: variables.$gradient;
+    color: variables.$color-text;
+    background-size: cover; // todo
+    background-repeat: no-repeat; //todo
+    min-height: calc(115vh - 2 * 4vw); //todo*/
 }
 
-.btn {
-  font-size: 1.625rem;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-}
-.btn:focus {
-  outline: none;
+::selection {
+  background-color: #9296c3;
 }
 
 /*# sourceMappingURL=main.css.map */

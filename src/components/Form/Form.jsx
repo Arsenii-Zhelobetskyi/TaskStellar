@@ -27,6 +27,7 @@ function Form({ inputText, storage, setInputText, setStorage }) {
   const submitForm = (e) => {
     //push info into the storage
     e.preventDefault();
+    if (!inputText) return;
     setStorage([task, ...storage.map((item) => addPosition(item))]);
     setInputText("");
   };
@@ -41,7 +42,7 @@ function Form({ inputText, storage, setInputText, setStorage }) {
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
         />
-        <button className="btn">📃Create task</button>
+        <button className="form__btn">📃Create task</button>
       </form>
     </div>
   );

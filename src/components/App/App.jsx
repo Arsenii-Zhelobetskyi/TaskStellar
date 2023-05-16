@@ -1,24 +1,28 @@
 import Form from "../Form/Form.jsx";
 import Filters from "../Filters/Filters.jsx";
 import Task from "../Task/Task.jsx";
+import EmptyList from "../EmptyList/EmptyList.jsx";
 import { useEffect, useState } from "react";
 import "./_app.scss";
-
+// import EmptyList from "../EmptyList/EmptyList.jsx";
 //todo проверить все ли в компонентах
 function App() {
   const [inputText, setInputText] = useState(""); // user input is chasing here
   const [storage, setStorage] = useState([]); // all information about the tasks
   const [sort, setSort] = useState("all");
   const [data, setData] = useState(storage); // all data that user's sees
+  // const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    // setIsLoading(true);
     const newData =
       sort !== "all"
         ? storage.filter((item) => item.completed === (sort === "completed"))
         : storage;
     setData(newData);
+    // setIsLoading(false);
   }, [sort, storage]);
-  console.log(data, storage);
-  console.log(storage);
+  // console.log(data, storage);
+  // console.log(storage);
   // console.log("sort:", sort);
 
   return (
@@ -40,21 +44,7 @@ function App() {
       <Filters sort={sort} setSort={setSort} />
       <hr />
       <div className="tasks">
-        {data.length === 0 ? (
-          <div className="empty-list">
-            <img
-              className="empty-list__illustration"
-              src="../../../public/icons/empty-list.svg"
-              alt="empty list illustration"
-            />
-            <div className="empty-list__logo-message">
-              your TaskStellar is lonely...
-            </div>
-            <div className="empty-list__message">
-              try start by adding some things to-do ᓚᘏᗢ
-            </div>
-          </div>
-        ) : (
+        {data.length !== 0 ? (
           data.map((task) => (
             <Task
               key={task.id}
@@ -63,6 +53,9 @@ function App() {
               setStorage={setStorage}
             />
           ))
+        ) : (
+          // <EmptyList isloading={isLoading} sort={sort} />
+          <EmptyList sort={sort} storage={storage} />
         )}
       </div>
     </div>

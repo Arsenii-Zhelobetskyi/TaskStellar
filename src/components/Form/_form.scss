@@ -1,18 +1,66 @@
 @use '../../sass/abstracts/variables';
+
 .form {
   border-radius: 40rem;
   display: inline-flex;
-  background-color: white;
-  &__input{
+  position: relative;
+  background-color: variables.$accent;
+  transition: transform 200ms ease-in-out;
+  //box-shadow: 0 1.25rem 5rem 0.1rem rgba(0, 0, 30, 0.3);
+  box-shadow: 0 20px 80px -18px variables.$primaryButton;
+
+  &__input {
     font-size: variables.$second-font-size;
     border: none;
     padding: 1rem;
     width: 683px;
     border-radius: 0.5rem 0 0 0.5rem;
+
     &:focus {
       outline: none;
+    }
+
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border-radius: 0.5rem;
+    //box-shadow: 0 2rem 2rem -1rem rgba(0, 0, 100, 0.5);
+    //box-shadow: 0 0.5rem 2rem -1rem variables.$color-grad-1;
+    box-shadow: 0 20px 80px -14px variables.$primaryButton;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 300ms ease-in-out;
+  }
+
+  &:has(input:focus) {
+    transform: translateY(-0.5rem);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+
+
+  &__btn{
+    font-size: variables.$second-font-size;
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 0.5rem;
+    background-color: variables.$primaryButton;
+    transition: background-color 300ms;
+    &:focus {
+      outline: none;
+    }
+    &:hover{
+      cursor: pointer;
+      background-color: variables.$secondaryButton;
     }
   }
 
 }
-

@@ -4,12 +4,14 @@
   margin: 20px 0 20px 0;
 
   &__uncompleted{
+    color: variables.$primaryButton;
     &:hover {
       text-decoration: underline;
       cursor: pointer;
     }
   }
   &__completed{
+    color: variables.$secondaryButton;
     &:hover {
       text-decoration: underline;
       cursor: pointer;
