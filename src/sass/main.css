@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+/*$text:#070909;
+$background: #191919;
+$primaryButton:#4e1488;
+$secondaryButton:#5e26c2;
+$accent:#a431c7;*/
 body {
   display: flex;
   justify-content: center;
@@ -20,7 +25,7 @@ body {
 }
 
 ::selection {
-  background-color: #9296c3;
+  background-color: #eac6be;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,25 @@
+@use '../../sass/abstracts/variables';
+
+.trash-icon {
+  display: flex;
+  height:30px;
+  width:30px;
+  transition: transform 300ms;
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+
+    .bucket {
+      fill: variables.$secondaryButton;
+      transition: fill 300ms;
+    }
+  }
+}
+
+.bucket {
+  fill: variables.$primaryButton;
+}
+
+.lines-on-bucket {
+  fill: variables.$background;
+}

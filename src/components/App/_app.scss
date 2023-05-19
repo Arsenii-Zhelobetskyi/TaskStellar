@@ -15,6 +15,12 @@
     padding-right: 20px;
   }
 }
+.gradient-text{
+background: linear-gradient(120deg, variables.$primaryButton, variables.$secondaryButton);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
 
 .tasks {
   margin: 40px 0 40px 0;

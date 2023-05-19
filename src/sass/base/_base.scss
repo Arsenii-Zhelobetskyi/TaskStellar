@@ -5,7 +5,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: variables.$first-font-size;
-  background-color: #e2e9e9;
+  background-color: variables.$background;
   color: #070909;
   //background-color: variables.$color-grad-1;
 /*  background-image: variables.$gradient;
@@ -15,5 +15,5 @@ body {
   min-height: calc(115vh - 2 * 4vw); //todo*/
 }
 ::selection {
-  background-color: #9296c3;
+  background-color: variables.$secondaryButton;
 }

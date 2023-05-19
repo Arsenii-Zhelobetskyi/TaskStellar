@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import "../Icon/TrashIcon.jsx";
 import "./_task.scss";
+import TrashIcon from "../Icon/TrashIcon.jsx";
+
 /**
  * user's task
  * @param task each task has some info
@@ -25,33 +28,37 @@ function Task({ task, storage, setStorage }) {
       setStorage([...deleteTask(), task]);
     }
     /*
-        setStorage(
-          storage.map((item) => {
-            if (item.id === task.id)
-              return {
-                ...item,
-                completed: !item.completed,
-              };
-            //destructuring the object->changing it's property->create+ return new object
-            else return item;
-          })
-        );
-    */
+                        setStorage(
+                          storage.map((item) => {
+                            if (item.id === task.id)
+                              return {
+                                ...item,
+                                completed: !item.completed,
+                              };
+                            //destructuring the object->changing it's property->create+ return new object
+                            else return item;
+                          })
+                        );
+                    */
   };
   return (
     <div className="task">
-      <input
-        className="input"
-        type="checkbox"
-        checked={task.completed}
-        onChange={() => toggleTask()}
-      />
-      <div className={`task-info ${task.completed ? "completed" : ""}`}>
+      <label className="checkbox">
+        <input
+          className="checkbox-default"
+          type="checkbox"
+          checked={task.completed}
+          onChange={() => toggleTask()}
+        />
+        <span className="checkbox-custom"></span>
+      </label>
+      <div
+        className={`task-info ${task.completed ? "completed" : ""}`}
+        onClick={() => toggleTask()}
+      >
         {task.info}
       </div>
-      <button className="delete-btn" onClick={() => deleteTask()}>
-        X
-      </button>
+      <TrashIcon deleteTask={deleteTask} />
     </div>
   );
 }

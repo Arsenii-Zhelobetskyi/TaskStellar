@@ -33,7 +33,10 @@ function App() {
           src="../../../public/icons/logo.svg"
           alt="app's logo"
         />
-        <div>TaskStellar</div>
+        <div>
+          Task
+          <span className="gradient-text">Stellar</span>
+        </div>
       </div>
       <Form
         inputText={inputText}
