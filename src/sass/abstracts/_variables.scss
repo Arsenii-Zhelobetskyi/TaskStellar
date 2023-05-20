@@ -6,16 +6,19 @@ $gradient: linear-gradient(to right top, $color-grad-1, $color-grad-2);
 $first-font-size: 1.625rem;
 $second-font-size: 1.625rem;
 
-$text:#070909;
+/*$text:#070909;
 $background: #e2e9e9;
 $primaryButton:#baa6ba;
 $secondaryButton:#eac6be;
-$accent:#eef2f2;
-/*$text:#070909;
+$accent:#eef2f2;*/
+$text: #f3ebff;
 $background: #191919;
-$primaryButton:#4e1488;
-$secondaryButton:#5e26c2;
-$accent:#a431c7;*/
+$second-color: #262626;
+$primaryButton: #732ee3;
+$secondaryButton: #de4f7a;
+$accent: #a431c7;
+$completedColor: #561896;
+$inactive: #5D5D5D;
 
 @mixin container(
   $display: flex,

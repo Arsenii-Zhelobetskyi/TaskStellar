@@ -4,10 +4,10 @@
 }
 
 /*$text:#070909;
-$background: #191919;
-$primaryButton:#4e1488;
-$secondaryButton:#5e26c2;
-$accent:#a431c7;*/
+$background: #e2e9e9;
+$primaryButton:#baa6ba;
+$secondaryButton:#eac6be;
+$accent:#eef2f2;*/
 body {
   display: flex;
   justify-content: center;
@@ -15,8 +15,8 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 1.625rem;
-  background-color: #e2e9e9;
-  color: #070909;
+  background-color: #191919;
+  color: #f3ebff;
   /*  background-image: variables.$gradient;
     color: variables.$color-text;
     background-size: cover; // todo
@@ -25,7 +25,7 @@ body {
 }
 
 ::selection {
-  background-color: #eac6be;
+  background-color: #de4f7a;
 }
 
 /*# sourceMappingURL=main.css.map */

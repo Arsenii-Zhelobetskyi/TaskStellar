@@ -45,7 +45,7 @@ function App() {
         setStorage={setStorage}
       />
       <Filters sort={sort} setSort={setSort} />
-      <hr />
+      {/*<div className="horizontal-line"></div>*/}
       <div className="tasks">
         {data.length !== 0 ? (
           data.map((task) => (
@@ -58,7 +58,10 @@ function App() {
           ))
         ) : (
           // <EmptyList isloading={isLoading} sort={sort} />
-          <EmptyList sort={sort} storage={storage} />
+          <div>
+            <div className="horizontal-line"></div>
+            <EmptyList sort={sort} storage={storage} />
+          </div>
         )}
       </div>
     </div>

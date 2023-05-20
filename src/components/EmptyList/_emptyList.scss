@@ -2,9 +2,11 @@
 .empty-list {
   @include variables.container(flex,center,center);
   flex-direction: column;
+  color: variables.$inactive;
   &__illustration{
     width: 500px;
     margin-bottom: 40px;
+    filter: grayscale(50%); /* Apply grayscale filter */
   }
   &__logo-message{
     font-weight: 500;

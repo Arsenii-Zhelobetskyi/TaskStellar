@@ -21,6 +21,7 @@ function Task({ task, storage, setStorage }) {
     if (task.completed) {
       task.positionChanged = false;
       task.completed = !task.completed;
+      // if (task.position === storage.length) setStorage();
       setStorage(storage.slice().sort((a, b) => a.position - b.position));
     } else {
       task.positionChanged = true;
@@ -28,18 +29,18 @@ function Task({ task, storage, setStorage }) {
       setStorage([...deleteTask(), task]);
     }
     /*
-                        setStorage(
-                          storage.map((item) => {
-                            if (item.id === task.id)
-                              return {
-                                ...item,
-                                completed: !item.completed,
-                              };
-                            //destructuring the object->changing it's property->create+ return new object
-                            else return item;
-                          })
-                        );
-                    */
+                            setStorage(
+                              storage.map((item) => {
+                                if (item.id === task.id)
+                                  return {
+                                    ...item,
+                                    completed: !item.completed,
+                                  };
+                                //destructuring the object->changing it's property->create+ return new object
+                                else return item;
+                              })
+                            );
+                        */
   };
   return (
     <div className="task">

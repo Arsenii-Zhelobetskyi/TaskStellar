@@ -42,7 +42,14 @@ function Form({ inputText, storage, setInputText, setStorage }) {
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
         />
-        <button className="form__btn">📃Create task</button>
+        <button className="form__btn">
+          <img
+            className="form__create-task"
+            src="../../../public/icons/create-task.svg"
+            alt="📃"
+          />
+          <div>Create task</div>
+        </button>
       </form>
     </div>
   );

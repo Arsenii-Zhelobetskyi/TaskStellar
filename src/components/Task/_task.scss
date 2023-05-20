@@ -6,13 +6,13 @@
   //display: grid;
   //width: 100px;
   //grid-template-columns: 10px auto 10px;
-  background-color: variables.$accent;
+  background-color: variables.$second-color;
   padding: 1rem;
   margin-bottom: 10px;
   border-radius: 0.5rem;
   opacity: 0; /* Початкове значення прозорості */
   animation-name: fadeIn; /* Назва анімації */
-  animation-duration: 400ms; /* Тривалість анімації */
+  animation-duration: 600ms; /* Тривалість анімації */
   animation-fill-mode: forwards; /* Залишити кінцевий стиль після анімації */
 }
 
@@ -47,22 +47,23 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: variables.$background;
-
+  height: 22px;
+  width: 22px;
+  //background-color: variables.$background;
+  border: 3px solid variables.$primaryButton;
   border-radius: 15px;
-  transition: background-color 300ms;
+  transition: background-color 300ms, border 300ms;
 }
 
 /* On mouse-over, add a grey background color */
 .checkbox:hover input ~ .checkbox-custom {
-  background-color: variables.$secondaryButton;
+  background-color: variables.$primaryButton;
 }
 
 /* When the checkbox is checked, add a blue background */
 .checkbox input:checked ~ .checkbox-custom {
-  background-color: variables.$primaryButton;
+  border: 3px solid variables.$secondaryButton;
+  background-color: variables.$secondaryButton;
 }
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkbox-custom:after {
@@ -78,8 +79,8 @@
 
 /* Style the checkmark/indicator */
 .checkbox .checkbox-custom:after {
-  left: 9px;
-  top: 5px;
+  left: 7px;
+  top: 4px;
   width: 5px;
   height: 10px;
   border: solid white;
@@ -108,6 +109,7 @@
 
 .completed {
   text-decoration: line-through;
+  color: variables.$inactive;
 }
 
 .delete-btn {
