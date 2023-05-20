@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Filter({ sort, setSort, howToSort, setPressed }) {
+function Filter({ className, sort, setSort, howToSort, setPressed }) {
   const toggleList = () => {
     setSort(
       ["all", "completed", "uncompleted"].includes(sort) ? howToSort : "all"
@@ -10,7 +10,11 @@ function Filter({ sort, setSort, howToSort, setPressed }) {
       uncompleted: howToSort === "uncompleted",
     });
   };
-  return <div onClick={() => toggleList()}>{howToSort}</div>;
+  return (
+    <div className={className} onClick={() => toggleList()}>
+      {howToSort}
+    </div>
+  );
 }
 
 export default Filter;

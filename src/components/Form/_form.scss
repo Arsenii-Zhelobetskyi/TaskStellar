@@ -1,0 +1,78 @@
+@use '../../sass/abstracts/variables';
+
+.form {
+  border-radius: 40rem;
+  display: inline-flex;
+  position: relative;
+  //background-color: variables.$accent;
+  transition: transform 200ms ease-in-out;
+  //box-shadow: 0 1.25rem 5rem 0.1rem rgba(0, 0, 30, 0.3);
+  //box-shadow: 0 20px 80px -20px variables.$primaryButton;
+
+  &__input {
+    background: variables.$second-color;
+    font-size: variables.$second-font-size;
+    color: variables.$text;
+    border: none;
+    padding: 1rem;
+    width: 680px;
+    border-radius: 0.5rem 0 0 0.5rem;
+
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border-radius: 0.5rem;
+    //box-shadow: 0 2rem 2rem -1rem rgba(0, 0, 100, 0.5);
+    //box-shadow: 0 0.5rem 2rem -1rem variables.$color-grad-1;
+    //box-shadow: 0 20px 50px 10px rgba(black,.2);
+    box-shadow: 0 20px 50px 10px rgba(lighten(variables.$color-grad-1, 25%), .2);
+    //background-image: linear-gradient(rgba(variables.$color-grad-1, .2), rgba(variables.$color-grad-1, 0.2));
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 300ms ease-in-out;
+  }
+
+  &:has(input:focus) {
+    transform: translateY(-0.5rem);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+
+  &__btn {
+    font-size: variables.$second-font-size;
+    display: flex;
+    align-items: center;
+    color: variables.$text;
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 0.5rem;
+    background-color: variables.$primaryButton;
+    transition: background-color 300ms;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: lighten(variables.$primaryButton, 10%);
+    }
+  }
+
+  &__create-task {
+    height: 30px;
+    width: 30px;
+  }
+}

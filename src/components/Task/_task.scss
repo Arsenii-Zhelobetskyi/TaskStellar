@@ -1,0 +1,117 @@
+@use '../../sass/abstracts/variables';
+
+.task  {
+  display: flex;
+  align-items: center;
+  //display: grid;
+  //width: 100px;
+  //grid-template-columns: 10px auto 10px;
+  background-color: variables.$second-color;
+  padding: 1rem;
+  margin-bottom: 10px;
+  border-radius: 0.5rem;
+  opacity: 0; /* Початкове значення прозорості */
+  animation-name: fadeIn; /* Назва анімації */
+  animation-duration: 600ms; /* Тривалість анімації */
+  animation-fill-mode: forwards; /* Залишити кінцевий стиль після анімації */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Початкова прозорість (невидимий) */
+  }
+  to {
+    opacity: 1; /* Кінцева прозорість (повністю видимий) */
+  }
+}
+.checkbox{ //todo
+  //display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkbox-default {
+  opacity: 1;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  //background-color: variables.$background;
+  border: 3px solid variables.$primaryButton;
+  border-radius: 15px;
+  transition: background-color 300ms, border 300ms;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox:hover input ~ .checkbox-custom {
+  background-color: variables.$primaryButton;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox input:checked ~ .checkbox-custom {
+  border: 3px solid variables.$secondaryButton;
+  background-color: variables.$secondaryButton;
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox-custom:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox input:checked ~ .checkbox-custom:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox .checkbox-custom:after {
+  left: 7px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.delete-icon{
+  width: 40px;
+  &:hover{
+    cursor:pointer;
+    fill: red;
+  }
+}
+.task-info {
+  padding: 10px;
+  flex: 1;
+  overflow-wrap: break-word;
+  width: 770px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  color: variables.$inactive;
+}
+
+.delete-btn {
+
+}

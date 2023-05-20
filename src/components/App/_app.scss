@@ -1,0 +1,35 @@
+@use '../../sass/abstracts/variables';
+
+.container {
+  width: 900px;
+}
+
+.horizontal-line {
+  width: 900px;
+  height: 72px;
+  border-top: 5px solid variables.$second-color;
+  border-radius: 20px;
+}
+
+.logo {
+  @include variables.container(flex, center, none);
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 6rem 0 5rem 0;
+
+  &__image {
+    width: 50px;
+    padding-right: 20px;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, variables.$primaryButton, variables.$secondaryButton);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.tasks {
+  margin: 40px 0 40px 0;
+}

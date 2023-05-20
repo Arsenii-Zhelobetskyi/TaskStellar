@@ -1,0 +1,19 @@
+@use '../abstracts/variables';
+
+body {
+  @include variables.container(flex, center,none);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: variables.$first-font-size;
+  background-color: variables.$background;
+  color: variables.$text;
+  //background-color: variables.$color-grad-1;
+/*  background-image: variables.$gradient;
+  color: variables.$color-text;
+  background-size: cover; // todo
+  background-repeat: no-repeat; //todo
+  min-height: calc(115vh - 2 * 4vw); //todo*/
+}
+::selection {
+  background-color: variables.$secondaryButton;
+}

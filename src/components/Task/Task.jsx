@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import "../Icon/TrashIcon.jsx";
+import "./_task.scss";
+import TrashIcon from "../Icon/TrashIcon.jsx";
 
 /**
  * user's task
@@ -8,33 +11,55 @@ import React from "react";
  * */
 function Task({ task, storage, setStorage }) {
   const deleteTask = () => {
-    // console.log(e);
-    setStorage(storage.filter((item) => item.id !== task.id));
+    const clearArray = storage.filter((item) => item.id !== task.id);
+    setStorage(clearArray);
+    return clearArray;
   };
   const toggleTask = () => {
+    console.log(storage);
     //SetStorage- because we want to say react that task should be re-rendered with new property
-
-    setStorage(
-      storage.map((item) => {
-        if (item.id === task.id)
-          return {
-            ...item,
-            completed: !item.completed,
-          };
-        //destructuring the object->changing it's property->create+ return new object
-        else return item;
-      })
-    );
+    if (task.completed) {
+      task.positionChanged = false;
+      task.completed = !task.completed;
+      // if (task.position === storage.length) setStorage();
+      setStorage(storage.slice().sort((a, b) => a.position - b.position));
+    } else {
+      task.positionChanged = true;
+      task.completed = !task.completed;
+      setStorage([...deleteTask(), task]);
+    }
+    /*
+                            setStorage(
+                              storage.map((item) => {
+                                if (item.id === task.id)
+                                  return {
+                                    ...item,
+                                    completed: !item.completed,
+                                  };
+                                //destructuring the object->changing it's property->create+ return new object
+                                else return item;
+                              })
+                            );
+                        */
   };
   return (
-    <div>
-      <input
-        type="checkbox"
-        checked={task.completed}
-        onChange={() => toggleTask()}
-      />
-      <div>{task.info}</div>
-      <button onClick={() => deleteTask()}>X</button>
+    <div className="task">
+      <label className="checkbox">
+        <input
+          className="checkbox-default"
+          type="checkbox"
+          checked={task.completed}
+          onChange={() => toggleTask()}
+        />
+        <span className="checkbox-custom"></span>
+      </label>
+      <div
+        className={`task-info ${task.completed ? "completed" : ""}`}
+        onClick={() => toggleTask()}
+      >
+        {task.info}
+      </div>
+      <TrashIcon deleteTask={deleteTask} />
     </div>
   );
 }
