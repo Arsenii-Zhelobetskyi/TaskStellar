@@ -1,9 +1,17 @@
 @use '../../sass/abstracts/variables';
 
 .container {
+  z-index: 9999;
   width: 900px;
 }
+.container-2{
+  @include variables.container(flex, center,none);
+}
+.par {
+  display: flex;
+  justify-content: center;
 
+}
 .horizontal-line {
   width: 900px;
   height: 72px;
@@ -15,7 +23,7 @@
   @include variables.container(flex, center, none);
   font-weight: 700;
   font-size: 3rem;
-  margin: 6rem 0 5rem 0;
+  margin: 10rem 0 5rem 0;
 
   &__image {
     width: 50px;

@@ -1,7 +1,23 @@
 import React, { useState } from "react";
 
-function Filter({ className, sort, setSort, howToSort, setPressed }) {
+function Filter({
+  storage,
+  setStorage,
+  className,
+  sort,
+  setSort,
+  howToSort,
+  setPressed,
+}) {
   const toggleList = () => {
+    console.log(sort !== "all");
+    if (sort !== "all" && sort !== "uncompleted")
+      setStorage(
+        storage.map((item) => ({
+          ...item,
+          animate: true,
+        }))
+      );
     setSort(
       ["all", "completed", "uncompleted"].includes(sort) ? howToSort : "all"
     );

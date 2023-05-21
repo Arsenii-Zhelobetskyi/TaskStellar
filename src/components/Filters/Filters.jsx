@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Filter from "./Filter/Filter.jsx";
 import "./_filters.scss";
 
-function Filters({ sort, setSort }) {
+function Filters({ storage, setStorage, sort, setSort }) {
   const [pressed, setPressed] = useState({
     uncompleted: false,
     completed: false,
@@ -10,6 +10,8 @@ function Filters({ sort, setSort }) {
   return (
     <div className="filters">
       <Filter
+        storage={storage}
+        setStorage={setStorage}
         className={`filters__uncompleted ${pressed.uncompleted ? "all" : ""}`}
         sort={sort}
         setSort={setSort}
@@ -17,6 +19,8 @@ function Filters({ sort, setSort }) {
         setPressed={setPressed}
       />
       <Filter
+        storage={storage}
+        setStorage={setStorage}
         className={`filters__completed ${pressed.completed ? "all" : ""}`}
         sort={sort}
         setSort={setSort}

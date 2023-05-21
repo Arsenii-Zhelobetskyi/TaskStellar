@@ -3,25 +3,23 @@
   padding: 0;
 }
 
-/*$text:#070909;
+.checkbox-default {
+  opacity: 0;
+  margin-right: 21px;
+}
+
+/* it is for probably white theme:D
+$text:#070909;
 $background: #e2e9e9;
 $primaryButton:#baa6ba;
 $secondaryButton:#eac6be;
 $accent:#eef2f2;*/
 body {
-  display: flex;
-  justify-content: center;
-  align-items: none;
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 1.625rem;
   background-color: #191919;
   color: #f3ebff;
-  /*  background-image: variables.$gradient;
-    color: variables.$color-text;
-    background-size: cover; // todo
-    background-repeat: no-repeat; //todo
-    min-height: calc(115vh - 2 * 4vw); //todo*/
 }
 
 ::selection {

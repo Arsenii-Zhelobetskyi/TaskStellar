@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../Icon/TrashIcon.jsx";
+import "../Icons/TrashIcon.jsx";
 import "./_task.scss";
-import TrashIcon from "../Icon/TrashIcon.jsx";
+import TrashIcon from "../Icons/TrashIcon.jsx";
 
 /**
  * user's task
@@ -16,34 +16,34 @@ function Task({ task, storage, setStorage }) {
     return clearArray;
   };
   const toggleTask = () => {
-    console.log(storage);
+    // console.log(storage);
     //SetStorage- because we want to say react that task should be re-rendered with new property
     if (task.completed) {
       task.positionChanged = false;
       task.completed = !task.completed;
-      // if (task.position === storage.length) setStorage();
-      setStorage(storage.slice().sort((a, b) => a.position - b.position));
+      task.animationKey = Date.now();
+      // console.log(task.animationKey);
+      setStorage(
+        storage
+          .map((item) =>
+            item !== task
+              ? { ...item, animate: false }
+              : { ...item, animate: true }
+          )
+          .sort((a, b) => a.position - b.position)
+      );
     } else {
       task.positionChanged = true;
+      task.animate = true;
       task.completed = !task.completed;
       setStorage([...deleteTask(), task]);
     }
-    /*
-                            setStorage(
-                              storage.map((item) => {
-                                if (item.id === task.id)
-                                  return {
-                                    ...item,
-                                    completed: !item.completed,
-                                  };
-                                //destructuring the object->changing it's property->create+ return new object
-                                else return item;
-                              })
-                            );
-                        */
   };
   return (
-    <div className="task">
+    <div
+      key={task.animationKey}
+      className={`task ${task.animate ? "" : "not-animate"}`}
+    >
       <label className="checkbox">
         <input
           className="checkbox-default"
