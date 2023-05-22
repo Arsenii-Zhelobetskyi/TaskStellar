@@ -40,7 +40,7 @@ function App() {
           <div className="logo">
             <img
               className="logo__image"
-              src="../../../public/icons/logo.svg"
+              src={`${import.meta.env.BASE_URL}icons/logo.svg`}
               alt="✨"
             />
             <div>
