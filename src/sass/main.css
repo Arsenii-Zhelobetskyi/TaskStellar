@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.checkbox-default {
+  opacity: 0;
+  margin-right: 21px;
+}
+
+/* it is for probably white theme:D
+$text:#070909;
+$background: #e2e9e9;
+$primaryButton:#baa6ba;
+$secondaryButton:#eac6be;
+$accent:#eef2f2;*/
+@keyframes tileAppear {
+  from {
+    transform: translateY(10%);
+    opacity: 0; /* origin opacity */
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1; /* final opacity */
+  }
+}
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.625rem;
+  background-color: #191919;
+  color: #f3ebff;
+}
+
+::selection {
+  background-color: #de4f7a;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,46 @@
+$first-font-size: 1.625rem;
+$second-font-size: 1.625rem;
+$text: #f3ebff;
+$background: #191919;
+$second-color: #262626;
+
+$primaryButton: #732ee3;
+$secondaryButton: #de4f7a;
+$inactive: #5D5D5D;
+
+@mixin container(
+  $display: flex,
+  $justify-content: center,
+  $align-items: center
+) {
+  display: $display;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+/* it is for probably white theme:D
+$text:#070909;
+$background: #e2e9e9;
+$primaryButton:#baa6ba;
+$secondaryButton:#eac6be;
+$accent:#eef2f2;*/
+
+@mixin animate(
+  $animation-name: tileAppear, /* name of animation */
+  $animation-duration: 0.6s, /* the length of animation */
+  $animation-fill-mode: forwards /* persist the last style of animation*/
+){
+  animation-name:$animation-name; /* name of animation */
+  animation-duration: $animation-duration; /* the length of animation */
+  animation-fill-mode: $animation-fill-mode; /* persist the last style of animation*/
+}
+@keyframes tileAppear {
+  from {
+    transform: translateY(10%);
+    opacity: 0; /* origin opacity */
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1; /* final opacity */
+  }
+}

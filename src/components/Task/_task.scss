@@ -1,0 +1,82 @@
+@use '../../sass/abstracts/variables';
+
+.task {
+  @include variables.container(flex, none, center);
+  @include variables.animate(tileAppear,0.6s,forwards);
+  background-color: variables.$second-color;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+
+}
+.not-animate{
+  animation: none;
+  opacity: 1;
+  transform: translateY(0)
+}
+ 
+.checkbox { //checkbox box
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-custom { // custom checkbox
+  position: absolute; // to place relatively to checkbox box
+  top: 1px;
+  left: 0;
+  height: 1.4rem;
+  width: 1.4rem;
+  border: 0.2rem solid variables.$primaryButton;
+  border-radius: 1rem;
+  transition: background-color 0.3s, border 0.3s;
+}
+
+/* On mouse-over, add a purple background color */
+.checkbox:hover input ~ .checkbox-custom {
+  background-color: variables.$primaryButton;
+}
+
+/* When the checkbox is checked, add a wine(red) background */
+.checkbox input:checked ~ .checkbox-custom {
+  border: 0.2rem solid variables.$secondaryButton;
+  background-color: variables.$secondaryButton;
+}
+
+/* the checkmark/indicator (hidden when not checked) */
+.checkbox-custom:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox input:checked ~ .checkbox-custom:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-custom:after {
+  left: 7px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid variables.$text;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.task-info {
+  padding: 10px;
+  flex: 1;
+  overflow-wrap: break-word; // to separate word in several lines
+  width: 770px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  color: variables.$inactive;
+}

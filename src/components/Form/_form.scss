@@ -1,0 +1,66 @@
+@use '../../sass/abstracts/variables';
+
+.form {
+  border-radius: 40rem;
+  display: inline-flex;
+  transition: transform 200ms ease-in-out;
+
+  &__input {
+    background: variables.$second-color;
+    font-size: variables.$second-font-size;
+    color: variables.$text;
+    border: none;
+    padding: 1rem;
+    width: 680px;
+    border-radius: 0.5rem 0 0 0.5rem;
+
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+  &::before { // shadow
+    content: "";//important to just create empty decorative element
+    position: absolute;
+    inset: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 50px 10px rgba(lighten(variables.$primaryButton, 25%), .2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  &:has(input:focus) {//adds when form has input and input has focus
+    transform: translateY(-0.5rem);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+
+  &__btn {
+    font-size: variables.$second-font-size;
+    display: flex;
+    align-items: center;
+    color: variables.$text;
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 0.5rem;
+    background-color: variables.$primaryButton;
+    transition: background-color 0.3s;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: lighten(variables.$primaryButton, 10%);
+    }
+    &__star-image {
+      width: 30px;
+    }
+  }
+}
