@@ -10,7 +10,7 @@ function EmptyList({ emptyListTrigger, sort, storage }) {
     <div key={emptyListTrigger} className={`empty-list`}>
       <img
         className="empty-list__illustration"
-        src={`../../../public/icons/${decideOutput(
+        src={`${import.meta.env.BASE_URL}icons/${decideOutput(
           "empty-task-list.svg",
           "no-completed-tasks.svg",
           "no-uncompleted-tasks.svg"

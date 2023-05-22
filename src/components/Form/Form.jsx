@@ -46,7 +46,7 @@ function Form({ storage, setStorage }) {
       <button className="form__btn">
         <img
           className="form__btn__star-image"
-          src="../../../public/icons/create-task.svg"
+          src={`${import.meta.env.BASE_URL}icons/create-task.svg`}
           alt="📃"
         />
         <div>Create task</div>
