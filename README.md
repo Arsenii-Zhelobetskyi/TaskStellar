@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1b8369e9-0d44-4a5d-9f48-38308bcd173b/deploy-status)](https://app.netlify.com/sites/taskstellar/deploys)
 <h1 align="center">✨TaskStellar✨</h1>
 <h3 align="center">📃Simple todo app created using React and scss📎</h3>
 
@@ -22,4 +23,5 @@
 
 </div>
 
+ 
  
