@@ -14,6 +14,16 @@ $background: #e2e9e9;
 $primaryButton:#baa6ba;
 $secondaryButton:#eac6be;
 $accent:#eef2f2;*/
+@keyframes tileAppear {
+  from {
+    transform: translateY(10%);
+    opacity: 0; /* origin opacity */
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1; /* final opacity */
+  }
+}
 body {
   font-family: "Inter", sans-serif;
   font-weight: 400;

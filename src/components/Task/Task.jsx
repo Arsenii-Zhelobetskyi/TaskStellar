@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "../Icons/TrashIcon.jsx";
 import "./_task.scss";
 import TrashIcon from "../Icons/TrashIcon.jsx";
@@ -16,13 +15,11 @@ function Task({ task, storage, setStorage }) {
     return clearArray;
   };
   const toggleTask = () => {
-    // console.log(storage);
     //SetStorage- because we want to say react that task should be re-rendered with new property
     if (task.completed) {
       task.positionChanged = false;
       task.completed = !task.completed;
       task.animationKey = Date.now();
-      // console.log(task.animationKey);
       setStorage(
         storage
           .map((item) =>

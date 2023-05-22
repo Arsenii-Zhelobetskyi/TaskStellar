@@ -7,11 +7,17 @@ import EmptyList from "../EmptyList/EmptyList.jsx";
 import Parallax from "../parallax/Parallax.jsx";
 
 function App() {
-  const [storage, setStorage] = useState([]); // all information about the tasks
+  const [storage, setStorage] = useState(() => {
+    const storedData = localStorage.getItem("tasks");
+    if (storedData) {
+      return JSON.parse(storedData);
+    } else return [];
+  }); // all information about the tasks
   const [sort, setSort] = useState("all"); //for properly sorting feature
   const [data, setData] = useState(storage); // all data that user's sees
+  const [emptyListTrigger, setEmptyListTrigger] = useState(""); // for trigger empty list appear animation
   useEffect(() => {
-    const newData =
+    let newData =
       sort !== "all"
         ? storage.filter((item) => item.completed === (sort === "completed"))
         : storage;
@@ -19,12 +25,17 @@ function App() {
   }, [sort, storage]);
   // console.log("data:", data);
   // console.log("storage:", storage);
+  useEffect(() => {
+    // save to local storage
+    localStorage.setItem("tasks", JSON.stringify(storage));
+  }, [storage]);
+
   return (
     <div>
-      <div className="par">
+      <div className="parallax-container">
         <Parallax />
       </div>
-      <div className="container-2">
+      <div className="base-container">
         <div className="container">
           <div className="logo">
             <img
@@ -39,6 +50,8 @@ function App() {
           </div>
           <Form storage={storage} setStorage={setStorage} />
           <Filters
+            data={data}
+            setEmptyListTrigger={setEmptyListTrigger}
             storage={storage}
             setStorage={setStorage}
             sort={sort}
@@ -57,7 +70,11 @@ function App() {
             ) : (
               <div>
                 <div className="horizontal-line"></div>
-                <EmptyList sort={sort} storage={storage} />
+                <EmptyList
+                  emptyListTrigger={emptyListTrigger}
+                  sort={sort}
+                  storage={storage}
+                />
               </div>
             )}
           </div>

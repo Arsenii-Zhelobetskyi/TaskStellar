@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-
+import { v4 as uuidv4 } from "uuid"; // force to play animation once again
 function Filter({
+  data,
+  setEmptyListTrigger,
   storage,
   setStorage,
   className,
@@ -10,7 +11,6 @@ function Filter({
   setPressed,
 }) {
   const toggleList = () => {
-    console.log(sort !== "all");
     if (sort !== "all" && sort !== "uncompleted")
       setStorage(
         storage.map((item) => ({
@@ -25,6 +25,9 @@ function Filter({
       completed: howToSort === "completed",
       uncompleted: howToSort === "uncompleted",
     });
+    if (data.length === 0) {
+      setEmptyListTrigger(uuidv4().slice(0, 6));
+    }
   };
   return (
     <div className={className} onClick={() => toggleList()}>

@@ -1,16 +1,13 @@
-import React from "react";
 import "./_emptyList.scss";
-// function EmptyList({ isloading, sort }) {
-function EmptyList({ sort, storage }) {
-  // console.log(sort);
-  // if (isloading) return;
-  const decideOutput = function (allValue, value2, value3) {
+
+function EmptyList({ emptyListTrigger, sort, storage }) {
+  const decideOutput = function (allValue, completedValue, uncompletedValue) {
     if (sort === "all" && storage.length === 0) return allValue;
-    else if (sort === "completed") return value2;
-    else if (sort === "uncompleted") return value3; //probably you should fix that
+    else if (sort === "completed") return completedValue;
+    else if (sort === "uncompleted") return uncompletedValue; //probably you should fix that
   };
   return (
-    <div className="empty-list">
+    <div key={emptyListTrigger} className={`empty-list`}>
       <img
         className="empty-list__illustration"
         src={`../../../public/icons/${decideOutput(

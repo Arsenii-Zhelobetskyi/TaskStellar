@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Filter from "./Filter/Filter.jsx";
 import "./_filters.scss";
 
-function Filters({ storage, setStorage, sort, setSort }) {
+function Filters({
+  data,
+  setEmptyListTrigger,
+  storage,
+  setStorage,
+  sort,
+  setSort,
+}) {
   const [pressed, setPressed] = useState({
     uncompleted: false,
     completed: false,
@@ -10,6 +17,8 @@ function Filters({ storage, setStorage, sort, setSort }) {
   return (
     <div className="filters">
       <Filter
+        data={data}
+        setEmptyListTrigger={setEmptyListTrigger}
         storage={storage}
         setStorage={setStorage}
         className={`filters__uncompleted ${pressed.uncompleted ? "all" : ""}`}
@@ -19,6 +28,8 @@ function Filters({ storage, setStorage, sort, setSort }) {
         setPressed={setPressed}
       />
       <Filter
+        data={data}
+        setEmptyListTrigger={setEmptyListTrigger}
         storage={storage}
         setStorage={setStorage}
         className={`filters__completed ${pressed.completed ? "all" : ""}`}

@@ -2,30 +2,19 @@
 
 .task {
   @include variables.container(flex, none, center);
+  @include variables.animate(tileAppear,0.6s,forwards);
   background-color: variables.$second-color;
   padding: 1rem;
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
-  animation-name: tileAppear; /* name of animation */
-  animation-duration: 0.6s; /* the length of animation */
-  animation-fill-mode: forwards; /* persist the last style of animation*/
+
 }
 .not-animate{
   animation: none;
   opacity: 1;
   transform: translateY(0)
 }
-@keyframes tileAppear {
-  from {
-    transform: translateY(10%);
-    opacity: 0; /* origin opacity */
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1; /* final opacity */
-  }
-}
-
+ 
 .checkbox { //checkbox box
   position: relative;
   cursor: pointer;

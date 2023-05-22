@@ -1,4 +1,3 @@
-import React from "react";
 import "./_trashIcon.scss";
 
 function TrashIcon({ deleteTask }) {

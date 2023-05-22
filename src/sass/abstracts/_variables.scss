@@ -24,3 +24,23 @@ $background: #e2e9e9;
 $primaryButton:#baa6ba;
 $secondaryButton:#eac6be;
 $accent:#eef2f2;*/
+
+@mixin animate(
+  $animation-name: tileAppear, /* name of animation */
+  $animation-duration: 0.6s, /* the length of animation */
+  $animation-fill-mode: forwards /* persist the last style of animation*/
+){
+  animation-name:$animation-name; /* name of animation */
+  animation-duration: $animation-duration; /* the length of animation */
+  animation-fill-mode: $animation-fill-mode; /* persist the last style of animation*/
+}
+@keyframes tileAppear {
+  from {
+    transform: translateY(10%);
+    opacity: 0; /* origin opacity */
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1; /* final opacity */
+  }
+}

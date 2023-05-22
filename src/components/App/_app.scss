@@ -4,10 +4,10 @@
   z-index: 9999;
   width: 900px;
 }
-.container-2{
+.base-container{//without it all elements will be smashed
   @include variables.container(flex, center,none);
 }
-.par {
+.parallax-container {
   display: flex;
   justify-content: center;
 
